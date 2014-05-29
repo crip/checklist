@@ -66,7 +66,7 @@ checklist.controller(
 
       }
 
-    }
+    };
 
     $scope.checklist = [
       {
@@ -85,6 +85,8 @@ checklist.controller(
         category: "General"
       }
     ];
+
+    $scope.categories = [];
 
   }
 

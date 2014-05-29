@@ -32,7 +32,7 @@
   <title>Accessibility Checklist</title>
   <meta charset="UTF-8">
 </head>
-<body ng:app="checklist" ng:controller="CheckController">
+<body ng-app="checklist" ng-controller="CheckController">
   <div class="site">
     <header class="header">
       <h1 class="site-title">Accessibility Checklist</h1>
@@ -40,7 +40,29 @@
 
     <main class="main" role="main">
 
-      <section class="section section-waiaria">
+      <section class="section section-waiaria" ng-repeat="category in categories">
+        <hgroup class="section-header">
+          <h2 class="section-title">{{ category.label }}</h2>
+        </hgroup>
+
+        <ul class="checklist">
+          <li class="check-item" ng-repeat="check in category.checklist">
+            <div class="item-inner">
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                <h3 class="item-title">{{ check.title }}</h3>
+                <div class="item-description">
+                  <p>{{ check.description }}</p>
+                </div>
+              </label>
+            </div>
+          </li>
+        </ul>
+
+        </section>
+
+        <section class="section section-waiaria">
         <hgroup class="section-header">
           <h2 class="section-title">WAI-ARIA</h2>
           <small class="section-description">Accessible Rich Internet Applications Suite</small>
