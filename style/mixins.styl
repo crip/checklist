@@ -1,0 +1,22 @@
+/*------------------------------------* 
+   $MIXINS 
+*------------------------------------*/
+/** 
+ * Various handy mixins 
+ */
+
+vendor(prop, val)
+  -webkit-{prop} val
+  -moz-{prop} val
+  -ms-{prop} val
+  {prop} val
+
+clearfix()
+  zoom 1
+  &:after
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
+

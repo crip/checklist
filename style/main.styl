@@ -1,0 +1,204 @@
+/*------------------------------------* 
+   $MAIN 
+*------------------------------------*/
+  
+body
+  font-family $base-font-family
+  color $base-color
+  background-color #F6F8FB
+
+/** 
+ * Site 
+ */
+.site
+  position relative
+
+.main
+  display block
+  width 100%
+  max-width 800px
+  margin 0 auto
+  padding 20px 40px
+  margin-bottom 50px
+
+  *, *:before, *:after
+    vendor('box-sizing', border-box)
+
+/** 
+ * Header 
+ */
+.header
+  background-color $brand-color
+  color #fff
+  height 250px
+  position relative
+
+.site-title
+  margin 0
+  padding 0
+  display inline-block
+  font-size 3.5em
+  font-weight 200
+  position absolute
+  top 50%
+  left 50%
+  vendor('transform', translate(-50%, -50%))
+  padding-left 20px
+
+  &:before
+    content ''
+    background transparent url('images/crip.svg') center center no-repeat
+    display block
+    width 70px
+    height 70px
+    -webkit-background-size 100%
+    background-size 100%
+    position absolute
+    bottom 10px
+    right 100%
+
+/** 
+ * Section 
+ */
+.section
+  padding 10px 0
+
+.section-header
+  padding-bottom 20px
+
+.section-title
+  text-align center
+  font-weight 500
+  font-size 2em
+  margin 0
+  padding 0
+
+.section-description
+  display block
+  text-align center
+  font-size 1em
+  color lighten($base-color, 30%)
+
+
+/**
+ * Checklist
+ */
+.checklist
+  list-style none
+  padding 0
+  margin 0
+  display block
+  clearfix()
+
+.check-item
+  display block
+
+  &:nth-child(even)
+    .checkbox
+      background-color darken(#F6F8FB, 5%)
+
+  &:first-of-type
+    .checkbox
+      border-radius 4px 4px 0 0
+
+  &:last-of-type
+    .checkbox
+      border-bottom 1px solid #ccc
+      border-radius 0 0 4px 4px
+
+.item-title
+  margin 0
+  padding 0
+  font-weight 500
+  font-size 1.5em
+  margin-bottom .5em
+
+.item-description
+  p
+    margin 0
+    margin-bottom 5px
+    color #505050
+
+.checkbox
+  padding 25px 30px 25px 80px
+  display block
+  border-top 1px solid #ccc
+  border-left 1px solid #ccc
+  border-right 1px solid #ccc
+  vendor('transition', background-color .2s ease)
+
+  &:hover
+    background-color lighten(#D6DBE2, 50%) !important
+
+.control
+  position relative
+  cursor pointer
+
+  input
+    position absolute
+    opacity 0
+    z-index -1
+
+.control-indicator
+  position absolute
+  top 50%
+  left 2.1em
+  display block
+  width  2.2rem
+  height 2.2rem
+  line-height 2rem
+  font-size 65%
+  color #eee
+  text-align center
+  background-color lighten(#B3BECD, 10%)
+  background-size 70% 70%
+  background-position center center
+  background-repeat no-repeat
+  vendor('user-select', none)
+  vendor('transform', translateY(-50%))
+
+/* Hover state */
+/* Focus */
+.control input:focus ~ .control-indicator
+  box-shadow 0 0 0 .075rem #fff, 0 0 0 .2rem #B3BECD
+
+/* Checked state */
+.control input:checked ~ .control-indicator
+  color #fff
+  background-color $checked-color
+
+/* Checkbox modifiers */
+.checkbox .control-indicator
+  border-radius 3px
+
+.checkbox input:checked ~ .control-indicator
+  background-image url('images/check.svg')
+
+.item-code
+  font-size 15px
+
+/**
+ * Footer
+ */
+.footer
+  display block
+  background-color $base-color
+  padding 20px 0
+  text-align center
+
+.credit
+  margin 0
+  padding 0
+  margin-bottom 10px
+  color #727A84
+  font-weight 300
+  font-size 1.2em
+
+.heart
+  position relative
+  top 5px
+  margin 0px 5px
+
+.credit-link
+  color #fff
+  text-decoration none
