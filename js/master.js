@@ -18,10 +18,16 @@ checklist.controller(
   
   function( $scope ){
 
+    $scope.clicked = function( $event ) {
+      var more = jQuery( $event.target )
+          desc = more.next();
+      desc.slideToggle(250);
+    };
+
     $scope.checklist = [
     {
       section: "General",
-      section_description: "Usable by all intended users, despite handicap, access device, or environmental conditions.",
+      section_description: "Usable by all intended users, despite disability, access device, or environmental conditions.",
       checkboxes: [
       {
         title: "Symbol/control must meet minimum size, space, and contrast requirements.",
