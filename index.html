@@ -22,7 +22,6 @@
 
   <script type="text/javascript" src="//use.typekit.net/jvu6kzp.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript">google.load("jquery", "1");</script>
 
@@ -40,13 +39,14 @@
 
     <main class="main" role="main">
 
-      <section class="section section-waiaria" ng-repeat="category in categories">
+      <section class="section section-waiaria" ng-repeat="section in checklist">
         <hgroup class="section-header">
-          <h2 class="section-title">{{ category.label }}</h2>
+          <h2 class="section-title">{{ section.section }}</h2>
+          <small class="section-description">{{ section.section_description }}</small>
         </hgroup>
 
         <ul class="checklist">
-          <li class="check-item" ng-repeat="check in category.checklist">
+          <li class="check-item" ng-repeat="check in section.checkboxes">
             <div class="item-inner">
               <label class="control checkbox">
                 <input type="checkbox">
@@ -60,66 +60,8 @@
           </li>
         </ul>
 
-        </section>
-
-        <section class="section section-waiaria">
-        <hgroup class="section-header">
-          <h2 class="section-title">WAI-ARIA</h2>
-          <small class="section-description">Accessible Rich Internet Applications Suite</small>
-        </hgroup>
-
-        <ul class="checklist">
-          <li class="check-item">
-            <div class="item-inner">
-              <label class="control checkbox">
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-                <h3 class="item-title">Provide meaningful alternative text for your images.</h3>
-                <div class="item-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, praesentium accusantium excepturi quidem quis nemo doloribus placeat incidunt inventore perspiciatis commodi similique obcaecati ipsa possimus debitis eligendi reiciendis. Cumque, quae!</p>
-                  <pre class="item-code"><code class="html">&lt;section aria-expanded="true" class="expand"&gt;<br>  &lt;p&gt;This section is currently expanded.&lt;/p&gt;<br>&lt;/section&gt;<br><br>&lt;section aria-expanded="false" class="hide"&gt;<br>  &lt;p&gt;This section is currently hidden.&lt;/p&gt;<br>&lt;/section&gt;</code></pre>
-                </div>
-              </label>
-            </div>
-          </li>
-          <li class="check-item">
-            <div class="item-inner">
-              <label class="control checkbox">
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-                <h3 class="item-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                <div class="item-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, nam cupiditate consequuntur esse molestiae labore aspernatur. Ad, totam, necessitatibus, rerum, amet maiores officiis magni et est ducimus iure placeat reiciendis.</p>
-                </div>
-              </label>
-            </div>
-          </li>
-          <li class="check-item">
-            <div class="item-inner">
-              <label class="control checkbox">
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-                <h3 class="item-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                <div class="item-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, praesentium accusantium excepturi quidem quis nemo doloribus placeat incidunt inventore perspiciatis commodi similique obcaecati ipsa possimus debitis eligendi reiciendis. Cumque, quae!</p>
-                </div>
-              </label>
-            </div>
-          </li>
-          <li class="check-item">
-            <div class="item-inner">
-              <label class="control checkbox">
-                <input type="checkbox">
-                <span class="control-indicator"></span>
-                <h3 class="item-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                <div class="item-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, nam cupiditate consequuntur esse molestiae labore aspernatur. Ad, totam, necessitatibus, rerum, amet maiores officiis magni et est ducimus iure placeat reiciendis.</p>
-                </div>
-              </label>
-            </div>
-          </li>
-        </ul>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -152,6 +94,7 @@
     </footer>
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
   <script src="js/master.js"></script>
 </body>
 </html>
