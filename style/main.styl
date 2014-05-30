@@ -24,6 +24,19 @@ body
   *, *:before, *:after
     vendor('box-sizing', border-box)
 
+a
+  color $brand-color
+  text-decoration none
+  vendor('transition', all .2s ease)  
+
+  &:hover, &:focus
+    color $brand-color--darken
+    border-bottom 1px solid $brand-color--darken
+
+a[target="_blank"]:after
+  content url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=")
+  margin 0 0 0 5px
+
 /** 
  * Header 
  */
@@ -116,6 +129,7 @@ body
   font-weight 500
   font-size 1.5em
   margin-bottom .5em
+  line-height 1.2
 
 .item-description
   p
