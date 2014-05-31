@@ -71,11 +71,11 @@
           <li class="check-item" ng-repeat="check in section.checkboxes">
             <div class="item-inner">
               <label class="control checkbox">
-                <input type="checkbox">
+                <input type="checkbox" ng-model="check.done">
                 <span class="control-indicator"></span>
                 <h3 class="item-title">{{ check.title }}</h3>
                 <a ng-click="clicked($event)" class="item-description__toggle" title="Read more" href>Read more about {{ check.title }}</a>
-                <div class="item-description" style="display: none;">
+                <div class="item-description">
                   <p ng-bind-html="check.description | to_trusted"></p>
                   <div class="item-code" ng-bind-html="check.code | to_trusted"></div>
                 </div>
