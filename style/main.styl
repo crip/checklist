@@ -145,6 +145,7 @@ a[target="_blank"]:after
       left 50%
       vendor('transform', translateX(-50%))
       opacity 0
+      visibility hidden
 
     &:after
       content attr(title)
@@ -163,6 +164,7 @@ a[target="_blank"]:after
       line-height 2.5
       border-radius 2px
       opacity 0
+      visibility hidden
 
     &:hover, &:focus
       border-bottom 2px solid $brand-color
@@ -170,6 +172,7 @@ a[target="_blank"]:after
 
       &:before, &:after
         opacity 1
+        visibility visible
 
 .main-actions__scroll
   background transparent url('images/arrow-up.svg') center center no-repeat
@@ -271,6 +274,13 @@ a[target="_blank"]:after
     margin-bottom 5px
     color #505050
 
+  .done &
+    a
+      color $base-color !important
+
+      &:hover, &:focus
+        border-bottom 1px solid $base-color
+
 .item-description__toggle
   position absolute
   bottom 0
@@ -291,6 +301,15 @@ a[target="_blank"]:after
     background-color #e0e0e0
     outline none
 
+  .done &
+    background-image url('images/ellipsis_white.svg') !important
+
+    &:hover, &:focus
+      border-top 1px solid darken($checked-color, 50%)
+      border-bottom none
+      background-color darken($checked-color, 25%)
+      outline none
+
 .checkbox
   padding 40px 60px 40px 80px
   display block
@@ -301,6 +320,13 @@ a[target="_blank"]:after
 
   &:hover
     background-color lighten(#D6DBE2, 50%) !important
+
+  &.done
+    background-color $checked-color !important
+    color #fff
+
+    p
+      color #fff
 
 .control
   position relative
@@ -337,7 +363,7 @@ a[target="_blank"]:after
 /* Checked state */
 .control input:checked ~ .control-indicator
   color #fff
-  background-color $checked-color
+  background-color darken($checked-color, 25%)
 
 /* Checkbox modifiers */
 .checkbox .control-indicator
@@ -374,3 +400,17 @@ a[target="_blank"]:after
 .credit-link
   color #fff
   text-decoration none
+
+@media print
+  .header
+    background-color none
+    height 150px
+
+  .site-title
+    color black
+    padding-left 0
+    font-size 2em
+    font-weight 500
+
+  .top-nav
+    display none

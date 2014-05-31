@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
   hljs.initHighlightingOnLoad();  
   fixNav();
+  taskDone();
 });
 
 var checklist = angular.module( "checklist", [] );
@@ -19,7 +20,16 @@ checklist.controller(
   
   function( $scope ){
 
+    // Scroll to top
+    $scope.scrollTop = function() {
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+      return false;
+    };
 
+    // Print page
+    $scope.printInfo = function() {
+      window.print();
+    };
 
     // Checklist data
     $scope.checklist = [
@@ -68,13 +78,24 @@ checklist.controller(
 );
 
 function fixNav(){
-    var spySection = $(".header");
+  var spySection = $(".header");
 
-    $(window).scroll(function(){
-        if ($(this).scrollTop() > spySection.outerHeight()) {
-          $(".top-nav").addClass('fixed-pos');
-        } else {
-          $(".top-nav").removeClass('fixed-pos');
-        }
-    });
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > spySection.outerHeight()) {
+      $(".top-nav").addClass('fixed-pos');
+    } else {
+      $(".top-nav").removeClass('fixed-pos');
+    }
+  });
+}
+
+function taskDone() {
+  $("input[type=checkbox]").click(function() {
+    if($(this).prop("checked")) {
+      $(this).parent().addClass('done');
+    }
+    else {
+      $(this).parent().removeClass('done');
+    }
+  });
 }

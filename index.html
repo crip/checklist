@@ -33,7 +33,7 @@
 </head>
 <body ng-app="checklist" ng-controller="CheckController">
   <div class="site">
-  
+
     <header class="header">
 
       <h1 class="site-title">Accessibility Checklist</h1>
@@ -42,8 +42,8 @@
         <div class="top-nav__inner">
           <div class="one-half">
             <ul class="nav-actions main-actions">
-              <li><a class="main-actions__scroll" href title="Scroll to top">Scroll to top</a></li>
-              <li><a class="main-actions__print" href title="Print checklist">Print checklist</a></li>
+              <li><a class="main-actions__scroll" href title="Scroll to top" ng-click="scrollTop()">Scroll to top</a></li>
+              <li><a class="main-actions__print" href title="Print checklist" ng-click="printInfo()">Print checklist</a></li>
               <li><a class="main-actions__clear" href title="Clear the checklist">Clear the checklist</a></li>
             </ul>
           </div>
