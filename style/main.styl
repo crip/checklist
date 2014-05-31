@@ -7,6 +7,10 @@ body
   color $base-color
   background-color #F6F8FB
 
+::selection
+  background-color $base-color
+  color #fff
+
 /** 
  * Site 
  */
@@ -27,7 +31,7 @@ body
 a
   color $brand-color
   text-decoration none
-  vendor('transition', all .2s ease)  
+  vendor('transition', color .2s ease)
 
   &:hover, &:focus
     color $brand-color--darken
@@ -45,6 +49,7 @@ a[target="_blank"]:after
   color #fff
   height 250px
   position relative
+  margin-bottom 60px
 
 .site-title
   margin 0
@@ -69,6 +74,135 @@ a[target="_blank"]:after
     position absolute
     bottom 10px
     right 100%
+
+/** 
+ * Navigation 
+ */
+.top-nav
+  position absolute
+  top 100%
+  left 0
+  display block
+  background-color #E5EBF3
+  border-bottom 1px solid #ccc
+  width 100%
+  margin-bottom 20px
+  z-index 10
+  clearfix()
+
+  &.fixed-pos
+    position fixed !important
+    top 0
+    left 0
+
+.top-nav__inner
+  display block
+  max-width 800px
+  margin 0 auto
+  clearfix()
+
+.one-half
+  width 50%
+  float left
+  clearfix()
+
+.nav-actions
+  margin 0
+  padding 0
+  list-style none
+
+  li
+    display inline-block
+
+.main-actions
+  text-align left
+
+  li
+    display block
+    float left
+
+  a
+    display block
+    float left
+    text-indent -9999px
+    width 4em
+    height 3.5em
+    border-bottom 2px solid transparent
+    padding-top 2px
+    position relative
+
+    &:before
+      content ''
+      position absolute
+      border-width 8px
+      border-color transparent
+      border-style solid
+      border-bottom-color $base-color
+      display block
+      width 0
+      height 0
+      top 100%
+      left 50%
+      vendor('transform', translateX(-50%))
+      opacity 0
+
+    &:after
+      content attr(title)
+      position absolute
+      top 74px
+      left 50%
+      vendor('transform', translateX(-50%))
+      background-color $base-color
+      color #fff
+      display block
+      text-indent 1px
+      font-size 14px
+      font-weight 400
+      min-width 140px
+      text-align center
+      line-height 2.5
+      border-radius 2px
+      opacity 0
+
+    &:hover, &:focus
+      border-bottom 2px solid $brand-color
+      outline none
+
+      &:before, &:after
+        opacity 1
+
+.main-actions__scroll
+  background transparent url('images/arrow-up.svg') center center no-repeat
+  background-size 2em
+
+.main-actions__print
+  background transparent url('images/printer.svg') center center no-repeat
+  background-size 2em
+  
+.main-actions__clear
+  background transparent url('images/reload.svg') center center no-repeat
+  background-size 2em
+
+.sort-actions
+  text-align right
+
+  a
+    display inline-block
+    line-height 3.5
+    padding 0px 1.5em
+    border-bottom 2px solid transparent
+    padding-top 2px
+    font-weight 500
+
+    &.active
+      background-color $brand-color
+      color #fff
+
+    &:hover, &:focus
+      border-bottom 2px solid $brand-color
+      background-color $brand-color
+      color #fff
+      outline none
 
 /** 
  * Section 
@@ -149,9 +283,13 @@ a[target="_blank"]:after
   -webkit-background-size 26px
   background-size 26px
   text-indent -9999px
+  vendor('transition', background-color .2s ease)  
 
-  &:hover
+  &:hover, &:focus
+    border-top 1px solid #ccc
     border-bottom none
+    background-color #e0e0e0
+    outline none
 
 .checkbox
   padding 40px 60px 40px 80px
