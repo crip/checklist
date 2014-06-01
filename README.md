@@ -1,6 +1,6 @@
 <h1>Accessibility Checklist</h1>
 
-Use this extremely small and lightweight project built in Angular JS to be an incomprehensive list for web developers to check against before releasing a website. It includes best practices and various resources from sites around the internet. Hopefully, you'll find it useful in your projects.
+Use this extremely small and lightweight project built in Angular JS to be an comprehensive list for web developers to check against before releasing a website. It includes best practices and various resources from sites around the internet. Hopefully, you'll find it useful in your projects.
 
 ### Usage
 
