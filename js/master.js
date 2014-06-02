@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-  hljs.initHighlightingOnLoad();  
+  hljs.initHighlightingOnLoad();
   fixNav();
   taskDone();
 });
@@ -17,7 +17,7 @@ checklist.filter(
 // Main controller for application
 checklist.controller(
   "CheckController",
-  
+
   function( $scope ){
 
     // Scroll to top
@@ -32,7 +32,7 @@ checklist.controller(
     };
 
     // Checklist data
-    $scope.checklist = [
+    var checkboxes = [
     {
       section: "General",
       section_description: "Usable by all intended users, despite disability, access device, or environmental conditions.",
@@ -65,6 +65,20 @@ checklist.controller(
       ]
     }
     ];
+
+    /**
+     * Check if data has been inserted otherwise use the sample data.
+     */
+    if (localStorage["checklist"] == "" || localStorage["checklist"] == null) {
+      $scope.checklist = checkboxes;
+    }
+    else {
+      $scope.checklist = JSON.parse(localStorage["checklist"]);
+    }
+
+    $scope.$watch("checklist", function() {
+      localStorage["checklist"] = JSON.stringify($scope.checklist);
+    }, true);
 
     // slideToggle for checkbox description
     $scope.clicked = function( $event ) {
