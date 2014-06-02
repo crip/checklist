@@ -43,7 +43,7 @@
             <ul class="nav-actions main-actions">
               <li><a class="main-actions__scroll" href title="Scroll to top" ng-click="scrollTop()">Scroll to top</a></li>
               <li><a class="main-actions__print" href title="Print checklist" ng-click="printInfo()">Print checklist</a></li>
-              <li><a class="main-actions__clear" href title="Clear the checklist">Clear the checklist</a></li>
+              <li><a class="main-actions__clear" href title="Clear the checklist" ng-click="clearLocalStorage()">Clear the checklist</a></li>
             </ul>
           </div>
           <div class="one-half">
@@ -69,7 +69,7 @@
         <ul class="checklist">
           <li class="check-item" ng-repeat="check in section.checkboxes">
             <div class="item-inner">
-              <label class="control checkbox">
+              <label class="control checkbox" ng-class="{ true: 'done'}[check.done]">
                 <input type="checkbox" ng-model="check.done">
                 <span class="control-indicator"></span>
                 <h3 class="item-title">{{ check.title }}</h3>

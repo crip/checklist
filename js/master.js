@@ -1,7 +1,6 @@
 jQuery(document).ready(function($) {
   hljs.initHighlightingOnLoad();
   fixNav();
-  taskDone();
 });
 
 var checklist = angular.module( "checklist", [] );
@@ -67,7 +66,7 @@ checklist.controller(
     ];
 
     /**
-     * Check if data has been inserted otherwise use the sample data.
+     * Check if data has been modified, otherwise user checkboxes standard
      */
     if (localStorage["checklist"] == "" || localStorage["checklist"] == null) {
       $scope.checklist = checkboxes;
@@ -76,9 +75,23 @@ checklist.controller(
       $scope.checklist = JSON.parse(localStorage["checklist"]);
     }
 
+    /**
+     * Always watch for changes
+     */
     $scope.$watch("checklist", function() {
       localStorage["checklist"] = JSON.stringify($scope.checklist);
     }, true);
+
+    /**
+     * Clear LocalStorage
+     */
+    $scope.clearLocalStorage = function() {
+      var confirmClear = confirm("Are you sure you want to clear the progress?");
+      if( confirmClear ) {
+        localStorage["checklist"] = "";
+        $scope.checklist = checkboxes;
+      }
+    }
 
     // slideToggle for checkbox description
     $scope.clicked = function( $event ) {
@@ -99,17 +112,6 @@ function fixNav(){
       $(".top-nav").addClass('fixed-pos');
     } else {
       $(".top-nav").removeClass('fixed-pos');
-    }
-  });
-}
-
-function taskDone() {
-  $("input[type=checkbox]").click(function() {
-    if($(this).prop("checked")) {
-      $(this).parent().addClass('done');
-    }
-    else {
-      $(this).parent().removeClass('done');
     }
   });
 }
