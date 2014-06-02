@@ -21,8 +21,19 @@ checklist.controller(
 
     // Scroll to top
     $scope.scrollTop = function() {
-      $("html, body").animate({ scrollTop: 0 }, "fast");
-      return false;
+      if ( $(window).scrollTop() != 0 ) {
+        $("html, body").animate({ scrollTop: 0 }, "fast");
+        return false;
+      }
+      else {
+        var siteTitle = $(".site-title").text();
+        setTimeout(function() {
+          $(".site-title").text("You're at the top, you crip!");
+          setTimeout(function() {
+            $(".site-title").text(siteTitle);
+          }, 2500);
+        }, 10);
+      }
     };
 
     // Print page
