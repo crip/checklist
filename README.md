@@ -22,6 +22,7 @@ We prefer to have discussions around working examples, so if you can, please do 
 * Fix print css
 * Add more guidelines
 * Better prompt for clearing localstorage
+* Implement RWD
 * Refactor
 
 ### Licence
