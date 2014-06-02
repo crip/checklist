@@ -17,5 +17,12 @@ Feel free to open any issues/pull requests if you have any feature requests.
 
 We prefer to have discussions around working examples, so if you can, please do the former. Each commit needs examples of good and bad usage to be accepted, but we’ll happily work with you to get your pull request ready to be merged.
 
+### TODO
+
+* Fix print css
+* Add more guidelines
+* Better prompt for clearing localstorage
+* Refactor
+
 ### Licence
 No license restrictions, use it however and wherever you want - Commercial, Personal, Non-profit however you please. Just send me a quick note letting me know if this project came handy and I'll be flattered. :)
