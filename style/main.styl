@@ -1,7 +1,7 @@
-/*------------------------------------* 
-   $MAIN 
+/*------------------------------------*
+   $MAIN
 *------------------------------------*/
-  
+
 body
   font-family $base-font-family
   color $base-color
@@ -11,8 +11,8 @@ body
   background-color $base-color
   color #fff
 
-/** 
- * Site 
+/**
+ * Site
  */
 .site
   position relative
@@ -41,8 +41,8 @@ a[target="_blank"]:after
   content url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=")
   margin 0 0 0 5px
 
-/** 
- * Header 
+/**
+ * Header
  */
 .header
   background-color $brand-color
@@ -75,8 +75,8 @@ a[target="_blank"]:after
     bottom 10px
     right 100%
 
-/** 
- * Navigation 
+/**
+ * Navigation
  */
 .top-nav
   position absolute
@@ -181,7 +181,7 @@ a[target="_blank"]:after
 .main-actions__print
   background transparent url('images/printer.svg') center center no-repeat
   background-size 2em
-  
+
 .main-actions__clear
   background transparent url('images/reload.svg') center center no-repeat
   background-size 2em
@@ -207,8 +207,8 @@ a[target="_blank"]:after
       color #fff
       outline none
 
-/** 
- * Section 
+/**
+ * Section
  */
 .section
   padding 10px 0
@@ -295,7 +295,7 @@ a[target="_blank"]:after
   -webkit-background-size 26px
   background-size 26px
   text-indent -9999px
-  vendor('transition', background-color .2s ease)  
+  vendor('transition', background-color .2s ease)
 
   &:hover, &:focus
     border-top 1px solid #ccc
@@ -404,9 +404,10 @@ a[target="_blank"]:after
   text-decoration none
 
 @media print
+
   .header
     background-color none
-    height 150px
+    height auto
 
   .site-title
     color black
@@ -415,4 +416,24 @@ a[target="_blank"]:after
     font-weight 500
 
   .top-nav
+    display none
+
+  .item-description
+    display block !important
+
+    p
+      display block
+
+  .control-indicator
+    display none !important
+
+  .checkbox
+    padding 0px
+    border none
+    height 130px
+
+    &:last-of-type
+      border-bottom none !important
+
+  .footer
     display none
