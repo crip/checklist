@@ -65,6 +65,8 @@ checklist.controller(
     }
     ];
 
+    $scope.show = "All";
+
     /**
      * Check if data has been modified, otherwise user checkboxes standard
      */
@@ -98,6 +100,19 @@ checklist.controller(
       var more = jQuery( $event.target )
           desc = more.next();
       desc.slideToggle(250);
+    };
+
+    /* Filter Function for All | Incomplete | Complete */
+    $scope.showFn = function  (todo) {
+      if ($scope.show === "All") {
+        return true;
+      }else if(todo.done && $scope.show === "Complete"){
+        return true;
+      }else if(!todo.done && $scope.show === "Incomplete"){
+        return true;
+      }else{
+        return false;
+      }
     };
 
   }

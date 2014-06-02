@@ -189,6 +189,11 @@ a[target="_blank"]:after
 .sort-actions
   text-align right
 
+  li.active
+    a
+      background-color $brand-color
+      color #fff
+
   a
     display inline-block
     line-height 3.5
@@ -196,10 +201,6 @@ a[target="_blank"]:after
     border-bottom 2px solid transparent
     padding-top 2px
     font-weight 500
-
-    &.active
-      background-color $brand-color
-      color #fff
 
     &:hover, &:focus
       border-bottom 2px solid $brand-color

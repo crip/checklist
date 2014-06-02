@@ -48,9 +48,15 @@
           </div>
           <div class="one-half">
             <ul class="nav-actions sort-actions">
-              <li><a class="active" href>All</a></li>
-              <li><a href>Incomplete</a></li>
-              <li><a href>Complete</a></li>
+              <li ng-class="{'active' : show == 'All' }" ng-click="show='All'">
+                <a href="#">All</a>
+              </li>
+              <li ng-class="{'active' : show == 'Incomplete' }" ng-click="show='Incomplete'">
+                <a href="#">Incomplete</a>
+              </li>
+              <li ng-class="{'active' : show == 'Complete' }" ng-click="show='Complete'">
+                <a href="#">Complete</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -67,7 +73,7 @@
         </hgroup>
 
         <ul class="checklist">
-          <li class="check-item" ng-repeat="check in section.checkboxes">
+          <li class="check-item" ng-repeat="check in section.checkboxes | filter:showFn">
             <div class="item-inner">
               <label class="control checkbox" ng-class="{ true: 'done'}[check.done]">
                 <input type="checkbox" ng-model="check.done">
