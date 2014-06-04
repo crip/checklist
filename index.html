@@ -24,8 +24,8 @@
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript">google.load("jquery", "1");</script>
 
+  <link rel="stylesheet" href="monokai.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="github.css">
 
   <title>Accessibility Checklist</title>
   <meta charset="UTF-8">
@@ -33,7 +33,7 @@
 <body ng-app="checklist" ng-controller="CheckController">
   <div class="site">
 
-    <header class="header">
+    <header class="header" role="banner">
 
       <h1 class="site-title">Accessibility Checklist</h1>
 
@@ -69,7 +69,7 @@
       <section class="section section-waiaria" ng-repeat="section in checklist">
         <hgroup class="section-header">
           <h2 class="section-title">{{ section.section }}</h2>
-          <small class="section-description">{{ section.section_description }}</small>
+          <small class="section-description" ng-bind-html="section.section_description | to_trusted"></small>
         </hgroup>
 
         <ul class="checklist">
