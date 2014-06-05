@@ -279,6 +279,22 @@ a[target="_blank"]:after
     margin-bottom 5px
     color #505050
 
+    code
+      margin 0
+      border 1px solid #ddd
+      background-color #f8f8f8
+      border-radius 3px
+      padding 2px
+      color #111 !important
+      font-size 12px
+      font-family Consolas, "Liberation Mono", Monaco, Courier, monospace
+
+  ul
+    padding-left 30px
+    list-style disc
+    margin-bottom 20px
+    display block
+
   .done &
     a
       color $base-color !important
@@ -378,7 +394,9 @@ a[target="_blank"]:after
   background-image url('images/check.svg')
 
 .item-code
-  font-size 15px
+  font-size 14px
+  background-color #272822
+  border-radius 4px
 
 .hljs
   display block
