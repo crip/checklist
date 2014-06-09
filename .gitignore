@@ -1,4 +1,4 @@
 node_modules/
-fabfily.py
-fabfily.pyc
-fabfily.py*
+fabfile.py
+fabfile.pyc
+fabfile.py*

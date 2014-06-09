@@ -4,7 +4,7 @@ Use this extremely small and lightweight project built in Angular JS to be an co
 
 ### Usage
 
-Use this project here: [Accessibility Checklist](http://checklist.crip.io) or clone it and customize it to your hearts content.
+Use this project here: [Accessibility Checklist](http://checklist.crip.se) or clone it and customize it to your hearts content.
 
 ### Feature Requests
 
