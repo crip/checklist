@@ -74,18 +74,18 @@
 
         <ul class="checklist">
           <li class="check-item" ng-repeat="check in section.checkboxes | filter:showFn">
-            <div class="item-inner">
+            <article class="item-inner" role="region">
               <label class="control checkbox" ng-class="{ true: 'done'}[check.done]">
                 <input type="checkbox" ng-model="check.done">
                 <span class="control-indicator"></span>
                 <h3 class="item-title">{{ check.title }}</h3>
                 <a ng-click="clicked($event)" ng-if="check.description" class="item-description__toggle" title="Read more" href>Read more about {{ check.title }}</a>
-                <div class="item-description" ng-if="check.description">
+                <div class="item-description" ng-if="check.description" aria-expanded="false">
                   <p ng-bind-html="check.description | to_trusted"></p>
                   <div class="item-code" ng-bind-html="check.code | to_trusted"></div>
                 </div>
               </label>
-            </div>
+            </article>
           </li>
         </ul>
 

@@ -3,6 +3,16 @@ jQuery(document).ready(function($) {
   fixNav();
 });
 
+$.fn.toggleAria = function(attr, closed, open) {
+  return this.each(function() {
+    var self = $(this);
+    if (self.attr(attr) == closed)
+      self.attr(attr, open);
+    else
+      self.attr(attr, closed);
+  });
+};
+
 var checklist = angular.module( "checklist", [] );
 
 // Html filter
@@ -176,7 +186,8 @@ checklist.controller(
     $scope.clicked = function( $event ) {
       var more = jQuery( $event.target )
           desc = more.next();
-      desc.slideToggle(250);
+          desc.slideToggle(250);
+          desc.toggleAria("aria-expanded", "false", "true");
     };
 
     /* Filter Function for All | Incomplete | Complete */
