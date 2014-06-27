@@ -1,6 +1,18 @@
 jQuery(document).ready(function($) {
   hljs.initHighlightingOnLoad();
   fixNav();
+
+  //This a page anchor link?
+  if (window.location.hash) {
+    //Then, slow your roll son, load then scroll
+    setTimeout(function() {
+      $('html, body').scrollTop(0).show();
+      $('html, body').animate({
+        //how about a touch of offset, cause I'm rockin' a fixed nav
+        scrollTop: $(window.location.hash).offset().top-61
+      }, 250)
+    }, 2);
+  }
 });
 
 $.fn.toggleAria = function(attr, closed, open) {
@@ -22,6 +34,36 @@ checklist.filter(
       return $sce.trustAsHtml(text);
     };
 }]);
+
+// Hash link filter
+checklist.filter(
+  "make_slug", function() {
+    return function( str, filter ) {
+      /**
+       * Changes, e.g., "Disabled People" to "disabled_people"
+       * Remove all these words from the string before URLifying.
+       */
+      if( filter ) {
+        removelist = ["a", "an", "as", "at", "before", "but", "by", "for", "from",
+        "is", "in", "into", "like", "of", "off", "on", "onto", "per",
+        "since", "than", "the", "this", "that", "to", "up", "via", "het", "de", "een", "en",
+        "with"];
+      }
+      else {
+        removelist = [];
+      }
+
+      // Save Strings
+      s = str;
+      r = new RegExp('\\b(' + removelist.join('|') + ')\\b', 'gi');
+      s = s.replace(r, '');
+      s = s.replace(/[^-\w\s]/g, ''); // Remove unneeded characters
+      s = s.replace(/^\s+|\s+$/g, ''); // Trim leading/trailing spaces
+      s = s.replace(/[-\s]+/g, '-'); // Convert spaces to hyphens
+      s = s.toLowerCase(); // Convert to lowercase
+      return s; // Trim to first num_chars characters
+    };
+});
 
 // Main controller for application
 checklist.controller(

@@ -405,6 +405,31 @@ a[target="_blank"]:after
   width 100%
 
 /**
+ * Link to task
+ */
+.link-to-task
+  position absolute
+  top 50%
+  left 100%
+  vendor('transform', translateY(-50%))
+  display block
+  width 2em
+  height 2em
+  background #ccc url('images/link.svg') center center no-repeat
+  vendor('background-size', 50%)
+  vendor('border-radius', 0 4px 4px 0)
+  text-indent -9999px
+  opacity 0
+  vendor('transition', opacity .2s ease-out)
+
+  &:hover
+    background-color $brand-color
+
+.check-item:hover
+  .link-to-task
+    opacity 1
+
+/**
  * Footer
  */
 .footer
