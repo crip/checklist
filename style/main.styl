@@ -417,13 +417,31 @@ a[target="_blank"]:after
   height 2em
   background #ccc url('images/link.svg') center center no-repeat
   vendor('background-size', 50%)
-  vendor('border-radius', 0 4px 4px 0)
   text-indent -9999px
   opacity 0
   vendor('transition', opacity .2s ease-out)
 
+  &:after
+    content ''
+    display block
+    width 0
+    height 0
+    border-left 0em solid #ccc
+    border-top 1em solid #ccc
+    border-bottom 1em solid #ccc
+    border-right .5em solid transparent
+    position absolute
+    top 0
+    left 100%
+
   &:hover
     background-color $brand-color
+
+    &:after
+      border-left 0em solid $brand-color
+      border-top 1em solid $brand-color
+      border-bottom 1em solid $brand-color
+      border-right .5em solid transparent
 
 .check-item:hover
   .link-to-task
