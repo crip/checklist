@@ -1,4 +1,4 @@
-<h1>Accessibility Checklist</h1>
+<h1>Accessibility Checklist</h1> <img src="http://img.shields.io/badge/Made%20by%20a-Crip-D4233E.svg?style=flat" />
 
 Use this extremely small and lightweight project built in Angular JS to be an comprehensive list for web developers to check against before releasing a website. It includes best practices and various resources from sites around the internet. Hopefully, you'll find it useful in your projects.
 
