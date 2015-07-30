@@ -30,4 +30,7 @@ We prefer to have discussions around working examples, so if you can, please do 
 [HTML5 Doctor](http://html5doctor.com/nav-element/)
 
 ### Licence
-No license restrictions, use it however and wherever you want - Commercial, Personal, Non-profit however you please. Just send me a quick note letting me know if this project came handy and I'll be flattered. :)
+
+[MIT](LICENCE)
+
+Just send me a quick note letting me know if this project came handy and I'll be flattered. :)
