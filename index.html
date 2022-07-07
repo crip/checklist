@@ -1,140 +1,182 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if IE]>           <html class="no-js ie-shit"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
-<head>
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+  <!--<![endif]-->
+  <head>
+    <meta property="og:image" content="images/social.png" />
+    <meta property="og:title" content="Accessibility Checklist" />
+    <meta property="og:url" content="http://checklist.crip.io/" />
+    <meta property="og:site_name" content="Accessibility Checklist" />
+    <meta
+      property="og:description"
+      content="An comprehensive list for web developers to check against before releasing a website."
+    />
 
-  <meta property="og:image" content="images/social.png"/>
-  <meta property="og:title" content="Accessibility Checklist"/>
-  <meta property="og:url" content="http://checklist.crip.io/"/>
-  <meta property="og:site_name" content="Accessibility Checklist"/>
-  <meta property="og:description" content="An comprehensive list for web developers to check against before releasing a website."/>
+    <meta name="description" content="Accessibility Checklist" />
+    <meta
+      name="keywords"
+      content="Web accessibility, accessibility, checklist, wai-aria, crip in tech"
+    />
+    <meta name="author" content="Crip in Tech" />
 
-  <meta name="description" content="Accessibility Checklist">
-  <meta name="keywords" content="Web accessibility, accessibility, checklist, wai-aria, crip as a service">
-  <meta name="author" content="Crip as a Service">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+    ></script>
 
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui" />
+    <link rel="stylesheet" href="monokai.css" />
+    <link rel="stylesheet" href="style.css" />
 
-  <script type="text/javascript" src="//use.typekit.net/jvu6kzp.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  <script type="text/javascript">google.load("jquery", "1");</script>
+    <title>Accessibility Checklist</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body ng-app="checklist" ng-controller="CheckController">
+    <div class="site">
+      <header class="header" role="banner">
+        <h1 class="site-title">Accessibility Checklist</h1>
 
-  <link rel="stylesheet" href="monokai.css">
-  <link rel="stylesheet" href="style.css">
-
-  <title>Accessibility Checklist</title>
-  <meta charset="UTF-8">
-</head>
-<body ng-app="checklist" ng-controller="CheckController">
-  <div class="site">
-
-    <header class="header" role="banner">
-
-      <h1 class="site-title">Accessibility Checklist</h1>
-
-      <nav class="top-nav" role="navigation">
-        <div class="top-nav__inner">
-          <div class="one-half">
-            <ul class="nav-actions main-actions">
-              <li><a class="main-actions__scroll" href title="Scroll to top" ng-click="scrollTop()">Scroll to top</a></li>
-              <li><a class="main-actions__print" href title="Print checklist" ng-click="printInfo()">Print checklist</a></li>
-              <li><a class="main-actions__clear" href title="Clear the checklist" ng-click="clearLocalStorage()">Clear the checklist</a></li>
-            </ul>
+        <nav class="top-nav" role="navigation">
+          <div class="top-nav__inner">
+            <div class="one-half">
+              <ul class="nav-actions main-actions">
+                <li>
+                  <a
+                    class="main-actions__scroll"
+                    href
+                    title="Scroll to top"
+                    ng-click="scrollTop()"
+                    >Scroll to top</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="main-actions__print"
+                    href
+                    title="Print checklist"
+                    ng-click="printInfo()"
+                    >Print checklist</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="main-actions__clear"
+                    href
+                    title="Clear the checklist"
+                    ng-click="clearLocalStorage()"
+                    >Clear the checklist</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="one-half">
+              <ul class="nav-actions sort-actions">
+                <li
+                  ng-class="{'active' : show == 'All' }"
+                  ng-click="show='All'"
+                >
+                  <a href>All</a>
+                </li>
+                <li
+                  ng-class="{'active' : show == 'Incomplete' }"
+                  ng-click="show='Incomplete'"
+                >
+                  <a href>Incomplete</a>
+                </li>
+                <li
+                  ng-class="{'active' : show == 'Complete' }"
+                  ng-click="show='Complete'"
+                >
+                  <a href>Complete</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="one-half">
-            <ul class="nav-actions sort-actions">
-              <li ng-class="{'active' : show == 'All' }" ng-click="show='All'">
-                <a href>All</a>
-              </li>
-              <li ng-class="{'active' : show == 'Incomplete' }" ng-click="show='Incomplete'">
-                <a href>Incomplete</a>
-              </li>
-              <li ng-class="{'active' : show == 'Complete' }" ng-click="show='Complete'">
-                <a href>Complete</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-    </header>
+      <main class="main" role="main">
+        <section
+          class="section section-waiaria"
+          ng-repeat="section in checklist"
+        >
+          <hgroup class="section-header">
+            <h2 class="section-title">{{ section.section }}</h2>
+            <small
+              class="section-description"
+              ng-bind-html="section.section_description | to_trusted"
+            ></small>
+          </hgroup>
 
-    <main class="main" role="main">
+          <ul class="checklist">
+            <li
+              class="check-item"
+              ng-repeat="check in section.checkboxes | filter:showFn"
+              id="{{ check.title | make_slug }}"
+            >
+              <article class="item-inner" role="region">
+                <label
+                  class="control checkbox"
+                  ng-class="{ true: 'done'}[check.done]"
+                >
+                  <input type="checkbox" ng-model="check.done" />
+                  <span class="control-indicator"></span>
+                  <h3 class="item-title">{{ check.title }}</h3>
+                  <a
+                    ng-click="clicked($event)"
+                    ng-if="check.description"
+                    class="item-description__toggle"
+                    title="Read more about {{ check.title }}"
+                    href
+                    >Read more about {{ check.title }}</a
+                  >
+                  <div
+                    class="item-description"
+                    ng-if="check.description"
+                    aria-expanded="false"
+                  >
+                    <p ng-bind-html="check.description | to_trusted"></p>
+                    <div
+                      class="item-code"
+                      ng-bind-html="check.code | to_trusted"
+                    ></div>
+                  </div>
+                  <a
+                    ng-href="#{{ check.title | make_slug }}"
+                    class="link-to-task"
+                    >Link to task</a
+                  >
+                </label>
+              </article>
+            </li>
+          </ul>
+        </section>
+      </main>
 
-      <section class="section section-waiaria" ng-repeat="section in checklist">
-        <hgroup class="section-header">
-          <h2 class="section-title">{{ section.section }}</h2>
-          <small class="section-description" ng-bind-html="section.section_description | to_trusted"></small>
-        </hgroup>
-
-        <ul class="checklist">
-          <li class="check-item" ng-repeat="check in section.checkboxes | filter:showFn" id="{{ check.title | make_slug }}">
-            <article class="item-inner" role="region">
-              <label class="control checkbox" ng-class="{ true: 'done'}[check.done]">
-                <input type="checkbox" ng-model="check.done">
-                <span class="control-indicator"></span>
-                <h3 class="item-title">{{ check.title }}</h3>
-                <a ng-click="clicked($event)" ng-if="check.description" class="item-description__toggle" title="Read more about {{ check.title }}" href>Read more about {{ check.title }}</a>
-                <div class="item-description" ng-if="check.description" aria-expanded="false">
-                  <p ng-bind-html="check.description | to_trusted"></p>
-                  <div class="item-code" ng-bind-html="check.code | to_trusted"></div>
-                </div>
-                <a ng-href="#{{ check.title | make_slug }}" class="link-to-task">Link to task</a>
-              </label>
-            </article>
-          </li>
-        </ul>
-
-      </section>
-
-    </main>
-
-    <footer class="footer" role="contentinfo">
-      <h2 class="credit">Created with <img src="images/heart.svg" class="heart" width="20px" height="auto" alt="heart"> by <a href="http://crip.io" class="credit-link">Crip as a Service</a></h2>
-
-      <script type="text/javascript" src="http://cdn.getshar.es/lib/0.8.0.min.js"></script>
-      <link type="text/css" rel="stylesheet" href="http://cdn.getshar.es/lib/0.8.0.min.css"/>
-      <script type="text/javascript">
-        new GetShare({
-          /*root: jQueryElement*/
-          network: "twitter",
-          button: {text: "Tweet"},
-          share: {
-            url: "http://checklist.crip.io",
-            message: "Accessibility Checklist by @cripreneurs http://checklist.crip.io"
-          },
-          counter: {position: "inside"}
-        });
-        new GetShare({
-          /*root: jQueryElement*/
-          network: "facebook",
-          button: {text: "Share"},
-          share: {
-            url: "http://checklist.crip.io",
-            message: "Accessibility Checklist by @cripreneurs http://checklist.crip.io"
-          },
-          counter: {position: "inside"}
-        });
-        new GetShare({
-          /*root: jQueryElement*/
-          network: "githubRepository",
-          button: {text: "Star"},
-          share: {
-            id: "johnie",
-            itemId: "checklist"
-          },
-          counter: {position: "inside"}
-        });
-      </script>
-    </footer>
-  </div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
-  <script src="js/master.js"></script>
-</body>
+      <footer class="footer" role="contentinfo">
+        <h2 class="credit">
+          Created with
+          <img
+            src="images/heart.svg"
+            class="heart"
+            width="20px"
+            height="auto"
+            alt="heart"
+          />
+          by <a href="http://crip.io" class="credit-link">Crip in Tech</a>
+        </h2>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+    <script src="js/master.js"></script>
+  </body>
 </html>

@@ -4,6 +4,9 @@
   "description": "Accessibility checklist for web projects",
   "author": "Johnie Hjelm",
   "license": "MIT",
+  "scripts": {
+    "gulp": "gulp"
+  },
   "devDependencies": {
     "gulp": "~3.7.0",
     "gulp-concat": "~2.2.0",
